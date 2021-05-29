@@ -17,10 +17,14 @@ class BookSearch:
             self.book_list.append(bookpath.replace('books/', ''))
 
     def search_result(self):
-        pass
+        result = []
+        for book in self.book_list:
+            if self.search_word in book:
+                result.append(book)
+        return result
 
 
 def run():
-    search_word = input('Enter word to search')
+    search_word = input('Enter word to search: ')
     search = BookSearch(search_word)
-    search.search_result()
+    print(search.search_result())
